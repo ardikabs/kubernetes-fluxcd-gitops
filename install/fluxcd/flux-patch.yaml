@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flux
+  namespace: flux
 spec:
   template:
     spec:
@@ -10,32 +11,13 @@ spec:
           args:
             - --manifest-generation=true
             - --memcached-hostname=flux-memcached.flux-system
-            # - --memcached-service=
-            # - --ssh-keygen-dir=/var/fluxd/keygen
+            - --memcached-service=
+            - --ssh-keygen-dir=/var/fluxd/keygen
             - --git-poll-interval=5m
             - --sync-interval=5m
-            - --git-branch=master
+            - --git-branch=add-helm-release-support
             - --git-path=clusters/00-namespaces,clusters/beta
             - --git-url=git@github.com:ardikabs/kubernetes-flux-gitops
-          resources:
-            requests:
-              cpu: 50m
-              memory: 64Mi
-            limits:
-              cpu: 1
-              memory: 1Gi
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: helm-operator
-spec:
-  template:
-    spec:
-      containers:
-        - name: helm-operator
-          args:
-          - --enabled-helm-versions=v3
           resources:
             requests:
               cpu: 50m
