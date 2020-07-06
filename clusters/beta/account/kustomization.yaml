@@ -1,0 +1,9 @@
+namespace: account
+
+bases:
+- ../../../services/account
+
+configMapGenerator:
+- name: account-env
+  envs:
+  - account.env

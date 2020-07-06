@@ -1,0 +1,4 @@
+bases:
+- account
+- order
+- product

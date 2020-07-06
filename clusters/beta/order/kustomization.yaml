@@ -1,0 +1,12 @@
+namespace: order
+
+bases:
+- ../../../services/order
+
+patchesStrategicMerge:
+- resources-patch.yaml
+
+configMapGenerator:
+- name: order-env
+  envs:
+  - order.env

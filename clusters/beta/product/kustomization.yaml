@@ -1,0 +1,10 @@
+namespace: product
+
+bases:
+- ../../../services/product
+
+configMapGenerator:
+- name: product-env
+  envs:
+  - product.env
+

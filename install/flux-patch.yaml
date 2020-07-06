@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux
+  namespace: flux
+spec:
+  template:
+    spec:
+      containers:
+        - name: flux
+          args:
+            - --manifest-generation=true
+            - --memcached-hostname=flux-memcached.flux-system
+            # - --memcached-service=
+            # - --ssh-keygen-dir=/var/fluxd/keygen
+            - --git-poll-interval=5m
+            - --sync-interval=5m
+            - --git-branch=master
+            - --git-path=cluster
+            - --git-url=git@github.com:org/dev-cluster
