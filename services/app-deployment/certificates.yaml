@@ -1,0 +1,27 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: kadabra-id-tls
+spec:
+  secretName: kadabra-id-tls
+  issuerRef:
+    name: letsencrypt-wildcard
+    kind: ClusterIssuer
+  commonName: '*.kadabra.id'
+  dnsNames:
+  - 'kadabra.id'
+  - '*.kadabra.id'
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: beta-kadabra-id-tls
+spec:
+  secretName: beta-kadabra-id-tls
+  issuerRef:
+    name: letsencrypt-wildcard
+    kind: ClusterIssuer
+  commonName: '*.beta.kadabra.id'
+  dnsNames:
+  - 'beta.kadabra.id'
+  - '*.beta.kadabra.id'

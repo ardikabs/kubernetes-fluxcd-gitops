@@ -1,0 +1,21 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt-wildcard
+spec:
+  acme:
+    # The ACME server URL
+    server: https://acme-v02.api.letsencrypt.org/directory
+    # Email address used for ACME registration
+    email: ardika@kadabra.id
+    # Name of a secret used to store the ACME account private key
+    privateKeySecretRef:
+      name: letsencrypt-wildcard
+    # Enable the DNS01 challenge provider
+    solvers:
+    - dns01:
+        cloudflare:
+          email: ardika@kadabra.id
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token

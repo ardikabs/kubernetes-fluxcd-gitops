@@ -1,15 +1,11 @@
-namespace: product
+namespace: order
 
-nameSuffix: -product
+nameSuffix: -order
 
 bases:
 - ../../../services/app-deployment
-
-patchesStrategicMerge:
-- patch.yaml
 
 configMapGenerator:
 - name: config-env
   envs:
   - config.env
-

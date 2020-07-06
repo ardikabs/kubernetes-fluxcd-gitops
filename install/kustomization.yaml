@@ -5,6 +5,7 @@ namespace: flux-system
 resources:
 - namespace.yaml
 - github.com/fluxcd/flux/deploy
+- github.com/fluxcd/helm-operator/deploy
 
 patchesStrategicMerge:
 - flux-patch.yaml

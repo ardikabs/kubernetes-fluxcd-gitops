@@ -1,12 +1,14 @@
 namespace: order
 
+nameSuffix: -order
+
 bases:
-- ../../../services/order
+- ../../../services/app-deployment
 
 patchesStrategicMerge:
-- resources-patch.yaml
+- patch.yaml
 
 configMapGenerator:
-- name: order-env
+- name: config-env
   envs:
-  - order.env
+  - config.env

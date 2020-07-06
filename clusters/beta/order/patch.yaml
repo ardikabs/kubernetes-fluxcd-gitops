@@ -1,0 +1,10 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: release
+spec:
+  releaseName: order
+  values:
+    image:
+      repository: k8s.gcr.io/echoserver
+      tag: 1.11

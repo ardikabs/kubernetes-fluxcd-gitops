@@ -1,0 +1,4 @@
+
+resources:
+- certificates.yaml
+- release.yaml

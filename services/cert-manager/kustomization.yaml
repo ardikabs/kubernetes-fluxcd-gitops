@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+- release.yaml
+- clusterissuer.yaml
+
+secretGenerator:
+- name: cloudflare-api-token-secret
+  literals:
+  - api-token=uottt_KK3CXMFKLPepHLAI-9AP6Oq90QyzoRyjq9
