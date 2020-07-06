@@ -1,0 +1,8 @@
+
+namespace: cert-manager
+
+bases:
+- ../../../services/cert-manager
+
+patchesStrategicMerge:
+- patch.yaml

@@ -1,0 +1,8 @@
+
+namespace: ingress-nginx
+
+bases:
+- ../../../services/ingress-nginx
+
+patchesStrategicMerge:
+- patch.yaml

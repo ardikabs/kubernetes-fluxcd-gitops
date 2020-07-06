@@ -1,0 +1,12 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: gitlab-runner
+spec:
+  values:
+    runnerRegistrationToken: "aEt-7RiR__8ezs3vDfMm"
+
+    ## For RBAC support:
+    rbac:
+      create: true
+      clusterWideAccess: true

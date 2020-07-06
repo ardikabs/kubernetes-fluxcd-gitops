@@ -1,9 +1,14 @@
 namespace: account
 
+nameSuffix: -account
+
 bases:
-- ../../../services/account
+- ../../../services/app-deployment
+
+patchesStrategicMerge:
+- patch.yaml
 
 configMapGenerator:
-- name: account-env
+- name: config-env
   envs:
-  - account.env
+  - config.env

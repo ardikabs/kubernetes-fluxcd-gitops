@@ -1,0 +1,10 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: release
+spec:
+  helmVersion: v3
+  chart:
+    repository: https://idnic.gitlab.io/k8s
+    name: app-deployment
+    version: 0.1.2

@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux
+  namespace: flux
+spec:
+  template:
+    spec:
+      containers:
+        - name: flux
+          args:
+            - --manifest-generation=true
+            # If you deployed memcached in a different namespace to flux,
+            # or with a different service name, you can supply these
+            # following two arguments to tell fluxd how to connect to it.
+            # - --memcached-hostname=memcached.default.svc.cluster.local
+
+            # Use the memcached ClusterIP service name by setting the
+            # memcached-service to string empty
+            - --memcached-service=
+
+            # This must be supplied, and be in the tmpfs (emptyDir)
+            # mounted above, for K8s >= 1.10
+            - --ssh-keygen-dir=/var/fluxd/keygen
+
+            - --git-poll-interval=5m
+            - --sync-interval=5m
+            - --git-url=git@github.com:ardikabs/kubernetes-fluxcd-gitops.git
+            - --git-branch=add-helm-release-support
+            - --git-path=clusters/00-namespaces,clusters/beta
+            - --git-label=flux
+            - --git-user=Satpam
+            - --git-email=me@ardikabs.com
+            # Include these two to enable git commit signing
+            # - --git-gpg-key-import=/root/gpg-import
+            # - --git-signing-key=<key id>
+          resources:
+            requests:
+              cpu: 50m
+              memory: 64Mi
+            limits:
+              cpu: 1
+              memory: 1Gi

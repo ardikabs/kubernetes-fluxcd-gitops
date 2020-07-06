@@ -1,0 +1,27 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: ardikabs-com-tls
+spec:
+  secretName: ardikabs-com-tls
+  issuerRef:
+    name: letsencrypt-wildcard
+    kind: ClusterIssuer
+  commonName: '*.ardikabs.com'
+  dnsNames:
+  - 'ardikabs.com'
+  - '*.ardikabs.com'
+---
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: beta-ardikabs-com-tls
+spec:
+  secretName: beta-ardikabs-com-tls
+  issuerRef:
+    name: letsencrypt-wildcard
+    kind: ClusterIssuer
+  commonName: '*.beta.ardikabs.com'
+  dnsNames:
+  - 'beta.ardikabs.com'
+  - '*.beta.ardikabs.com'

@@ -1,0 +1,8 @@
+
+namespace: gitlab
+
+bases:
+- ../../../services/gitlab-runner
+
+patchesStrategicMerge:
+- patch.yaml
