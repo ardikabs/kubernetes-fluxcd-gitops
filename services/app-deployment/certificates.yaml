@@ -1,27 +1,27 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: kadabra-id-tls
+  name: ardikabs-com-tls
 spec:
-  secretName: kadabra-id-tls
+  secretName: ardikabs-com-tls
   issuerRef:
     name: letsencrypt-wildcard
     kind: ClusterIssuer
-  commonName: '*.kadabra.id'
+  commonName: '*.ardikabs.com'
   dnsNames:
-  - 'kadabra.id'
-  - '*.kadabra.id'
+  - 'ardikabs.com'
+  - '*.ardikabs.com'
 ---
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: beta-kadabra-id-tls
+  name: beta-ardikabs-com-tls
 spec:
-  secretName: beta-kadabra-id-tls
+  secretName: beta-ardikabs-com-tls
   issuerRef:
     name: letsencrypt-wildcard
     kind: ClusterIssuer
-  commonName: '*.beta.kadabra.id'
+  commonName: '*.beta.ardikabs.com'
   dnsNames:
-  - 'beta.kadabra.id'
-  - '*.beta.kadabra.id'
+  - 'beta.ardikabs.com'
+  - '*.beta.ardikabs.com'
