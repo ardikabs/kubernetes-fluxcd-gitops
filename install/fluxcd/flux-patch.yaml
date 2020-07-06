@@ -10,7 +10,7 @@ spec:
         - name: flux
           args:
             - --manifest-generation=true
-            - --memcached-hostname=flux-memcached.flux-system
+            - --memcached-hostname=memcached.flux.svc
             - --memcached-service=
             - --ssh-keygen-dir=/var/fluxd/keygen
             - --git-poll-interval=5m
@@ -18,6 +18,13 @@ spec:
             - --git-branch=add-helm-release-support
             - --git-path=clusters/00-namespaces,clusters/beta
             - --git-url=git@github.com:ardikabs/kubernetes-flux-gitops
+
+            # Include this if you want to restrict the manifests considered by flux
+            # to those under the following relative paths in the git repository
+            # - --git-label=flux-sync
+            - --git-user=Satpam
+            - --git-email=me@ardikabs.com
+
           resources:
             requests:
               cpu: 50m
