@@ -2,6 +2,7 @@ resources:
 - ingress-nginx.yaml
 - cert-manager.yaml
 - gitlab.yaml
-- consul.yaml
-- vault.yaml
-- vault-unlock.yaml
+
+- account.yaml
+- order.yaml
+- product.yaml
