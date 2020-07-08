@@ -4,6 +4,7 @@ metadata:
   name: ingress-nginx
 spec:
   helmVersion: v3
+  releaseName: ingress-nginx
   chart:
     repository: https://kubernetes.github.io/ingress-nginx
     name: ingress-nginx

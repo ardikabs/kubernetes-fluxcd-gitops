@@ -4,6 +4,7 @@ metadata:
   name: release
 spec:
   helmVersion: v3
+  releaseName: release
   chart:
     repository: https://idnic.gitlab.io/k8s
     name: app-deployment
