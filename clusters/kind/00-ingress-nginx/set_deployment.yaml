@@ -1,0 +1,34 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: ingress-nginx
+spec:
+  values:
+    controller:
+      kind: Deployment
+      replicaCount: 3
+      minAvailable: 1
+
+      dnsPolicy: ClusterFirst
+
+      updateStrategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxUnavailable: 0
+
+      minReadySeconds: 0
+
+      service:
+        enabled: true
+        enableHttp: true
+        enableHttps: true
+        ports:
+          http: 80
+          https: 443
+        targetPorts:
+          http: http
+          https: https
+        type: LoadBalancer
+        internal:
+          enabled: false
+          annotations: {}

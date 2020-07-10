@@ -1,0 +1,36 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: ingress-nginx
+spec:
+  values:
+    ## Enable RBAC as per https://github.com/kubernetes/ingress/tree/master/examples/rbac/nginx and https://github.com/kubernetes/ingress/issues/266
+    rbac:
+      create: true
+      scope: false
+
+    # If true, create & use Pod Security Policy resources
+    # https://kubernetes.io/docs/concepts/policy/pod-security-policy/
+    podSecurityPolicy:
+      enabled: false
+
+    serviceAccount:
+      create: true
+      name:
+
+    ## Optional array of imagePullSecrets containing private registry credentials
+    ## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+    imagePullSecrets: []
+    # - name: secretName
+
+    # TCP service key:value pairs
+    # Ref: https://github.com/kubernetes/contrib/tree/master/ingress/controllers/nginx/examples/tcp
+    ##
+    tcp: {}
+    #  8080: "default/example-tcp-svc:9000"
+
+    # UDP service key:value pairs
+    # Ref: https://github.com/kubernetes/contrib/tree/master/ingress/controllers/nginx/examples/udp
+    ##
+    udp: {}
+    #  53: "kube-system/kube-dns:53"
