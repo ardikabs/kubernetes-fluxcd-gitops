@@ -1,0 +1,32 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: release
+spec:
+  releaseName: order
+  values:
+    image:
+      repository: k8s.gcr.io/echoserver
+      tag: 1.6
+
+    containerPort:
+      http:
+        port: 8080
+
+    livenessProbe:
+      failureThreshold: 3
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+      port: 8080
+      healthCheckPath: "/healthz"
+
+    readinessProbe:
+      failureThreshold: 3
+      initialDelaySeconds: 10
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 1
+      port: 8080
+      healthCheckPath: "/healthz"

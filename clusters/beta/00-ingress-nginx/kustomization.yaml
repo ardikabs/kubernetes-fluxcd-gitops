@@ -6,3 +6,4 @@ bases:
 
 patchesStrategicMerge:
 - patch.yaml
+- set_daemonset.yaml

@@ -1,0 +1,28 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: ingress-nginx
+spec:
+  values:
+    ## nginx configuration
+    ## Ref: https://github.com/kubernetes/ingress/blob/master/controllers/nginx/configuration.md
+    ##
+    controller:
+      kind: DaemonSet
+      minAvailable: 1
+      hostNetwork: true
+
+      dnsPolicy: ClusterFirstWithHostNet
+
+      reportNodeInternalIp: false
+
+      updateStrategy:
+        type: RollingUpdate
+        rollingUpdate:
+          maxUnavailable: 0
+
+      minReadySeconds: 0
+
+      service:
+        enabled: true
+        type: NodePort
