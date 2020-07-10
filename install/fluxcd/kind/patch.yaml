@@ -26,8 +26,8 @@ spec:
             - --git-poll-interval=5m
             - --sync-interval=5m
             - --git-url=git@github.com:ardikabs/kubernetes-fluxcd-gitops.git
-            - --git-branch=add-helm-release-support
-            - --git-path=clusters/00-namespaces,clusters/beta
+            - --git-branch=master
+            - --git-path=clusters/.namespaces,clusters/kind
             - --git-label=flux
             - --git-user=Satpam
             - --git-email=me@ardikabs.com
@@ -36,11 +36,3 @@ spec:
             # - --git-signing-key=<key id>
 
             - --listen-metrics=:3031
-
-          resources:
-            requests:
-              cpu: 50m
-              memory: 64Mi
-            limits:
-              cpu: 1
-              memory: 1Gi

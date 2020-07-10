@@ -5,4 +5,4 @@ bases:
 - github.com/fluxcd/flux/deploy
 
 patchesStrategicMerge:
-- flux-patch.yaml
+- patch.yaml
