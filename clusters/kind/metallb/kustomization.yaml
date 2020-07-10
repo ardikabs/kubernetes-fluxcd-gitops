@@ -12,6 +12,6 @@ configMapGenerator:
     - config=configs/config.yaml
 
 secretGenerator:
-- name: secretkey
+- name: memberlist
   files:
   - configs/secretkey
