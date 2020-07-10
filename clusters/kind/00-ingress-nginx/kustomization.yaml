@@ -2,8 +2,7 @@
 namespace: ingress-nginx
 
 bases:
-- ../../../services/ingress-nginx
+- github.com/metallb/metallb/manifests?ref=v0.9.3
 
 patchesStrategicMerge:
 - patch.yaml
-- set_deployment.yaml
