@@ -2,6 +2,8 @@ bases:
 - 00-gitlab-runner
 - 00-ingress-nginx
 
+- metallb
+
 - account
 - order
 - product
