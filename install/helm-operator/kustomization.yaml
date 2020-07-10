@@ -5,4 +5,4 @@ bases:
 - github.com/fluxcd/helm-operator/deploy
 
 patchesStrategicMerge:
-- flux-patch.yaml
+- patch.yaml
