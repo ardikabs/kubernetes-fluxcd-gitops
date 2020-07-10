@@ -1,3 +1,7 @@
 bases:
 - 00-gitlab-runner
 - 00-ingress-nginx
+
+- account
+- order
+- product
